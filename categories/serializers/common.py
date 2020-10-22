@@ -1,9 +1,9 @@
 from rest_framework import serializers
 
-from ..models import LifehackType
+from ..models import LifehackCategory
 
-class LifehackTypeSerializer(serializers.ModelSerializer):
+class LifehackCategorySerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = LifehackType
+        model = LifehackCategory
         fields = '__all__'
