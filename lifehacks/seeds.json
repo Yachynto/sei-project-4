@@ -1,0 +1,50 @@
+[
+{
+  "model": "lifehacks.lifehack",
+  "pk": 1,
+  "fields": {
+    "name": "Ice Cream Cone Rotator",
+    "image": "https://cdn.pocket-lint.com/r/s/660x/assets/images/137775-gadgets-news-feature-27-crazy-inventions-you-won-t-believe-what-you-re-about-to-see-image9-6udkvclctr-jpg.webp?v1",
+    "text": "Licking an ice cream. Hassle. Right? Not any more thanks to the rotating cone that will move the ice cream so you can leave your tongue in one place – saving valuable calories.",
+    "category": [
+      1
+    ]
+  }
+},
+{
+  "model": "lifehacks.lifehack",
+  "pk": 2,
+  "fields": {
+    "name": "Nose Stylus",
+    "image": "https://cdn.pocket-lint.com/r/s/660x/assets/images/137775-gadgets-news-feature-27-crazy-inventions-you-won-t-believe-what-you-re-about-to-see-image2-e0845ws2jv-jpg.webp?v1",
+    "text": "Designer Dominic Wilcox came up with the Nose Stylus idea as a means to make multi-tasking even more effective. Looks were obviously less of a consideration, or perhaps he just really liked Clockwork Orange.",
+    "category": [
+      1
+    ]
+  }
+},
+{
+  "model": "lifehacks.lifehack",
+  "pk": 3,
+  "fields": {
+    "name": "Baby Mop",
+    "image": "https://cdn.pocket-lint.com/r/s/660x/assets/images/137775-gadgets-news-feature-20-crazy-inventions-you-won-t-believe-what-you-re-about-to-see-image12-RyVoL6zUDv-jpg.webp?v1",
+    "text": "Your baby is already crawling all over the floor, why not put it to work? This onesie acts like a giant cleaning rag letting your little one learn the value of a day's hard work from a very, very young age.",
+    "category": [
+      2
+    ]
+  }
+},
+{
+  "model": "lifehacks.lifehack",
+  "pk": 4,
+  "fields": {
+    "name": "Phone holder cup",
+    "image": "https://cdn.pocket-lint.com/r/s/660x/assets/images/137775-gadgets-feature-20-crazy-inventions-you-won-t-believe-what-you-re-about-to-see-image6-buhykjbis8-jpg.webp?v1",
+    "text": "Can't take your eyes off your small screen? Then this gadget probably looks appealing. It's a cup with a built-in smartphone holder. All you have to do is fill the cup with your favourite beverage, slip your smartphone into the straw holder and get to browsing and drinking.",
+    "category": [
+      3
+    ]
+  }
+}
+]

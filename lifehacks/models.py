@@ -6,7 +6,7 @@ class Lifehack(models.Model):
     image = models.CharField(max_length=300)
     text =  models.CharField(max_length=300)
     category = models.ManyToManyField(
-        'categories.LifehackCategory',
+        'categories.Category',
         related_name='lifehack'
     )
 

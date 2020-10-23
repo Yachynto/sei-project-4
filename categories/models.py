@@ -1,6 +1,6 @@
 from django.db import models
 
-class LifehackCategory(models.Model):
+class Category(models.Model):
     name = models.CharField(max_length=20)
 
     def __str__(self):

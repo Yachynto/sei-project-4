@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import LifehackCategory
+from .models import Category
 
-admin.site.register(LifehackCategory)
+admin.site.register(Category)
 
 # Register your models here.
