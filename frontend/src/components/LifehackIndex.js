@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { getLifehacks } from '../lib/api'
+import LifehackCard from './LifehackCard'
 
 class LifehackIndex extends React.Component {
   state = {
@@ -16,8 +17,13 @@ class LifehackIndex extends React.Component {
   }
 
   render() {
+    if ( !this.state.lifehacks ) return null
     return (
-      <h1>hi</h1>
+      <div>
+        { this.state.lifehacks.map(lifehack => (
+          <LifehackCard key={lifehack.id} {...lifehack} />
+        ))}
+      </div>
     )
   }
 }
