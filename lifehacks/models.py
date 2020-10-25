@@ -9,6 +9,11 @@ class Lifehack(models.Model):
         'categories.Category',
         related_name='lifehack'
     )
+    owner = models.ForeignKey(
+        'jwt_auth.User',
+        related_name="created_lifehack",
+        on_delete=models.CASCADE
+    )
 
     def __str__(self):
         return f'{self.name}'
