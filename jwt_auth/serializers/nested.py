@@ -8,4 +8,3 @@ class NestedUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
         fields = ('id', 'username') #? Must have a comma at the end to make it a tuple
-        
