@@ -1,9 +1,8 @@
 import React from 'react'
-import LifehackIndex from '../components/LifehackIndex'
 
 const HomePage = () => {
   return (
-    <LifehackIndex />
+    <h1>Welcome to Lifehacks</h1>
   )
 }
 

@@ -11,13 +11,13 @@ User = get_user_model()
 class UserSerializer(serializers.ModelSerializer):
 
     password = serializers.CharField(write_only=True)
-    password_confirmation = serializers.CharField(write_only=True)
+    passwordConfirmation = serializers.CharField(write_only=True)
 
     def validate(self, data):
         password = data.pop('password')
-        password_confirmation = data.pop('password_confirmation')
+        passwordConfirmation = data.pop('passwordConfirmation')
 
-        if password != password_confirmation:
+        if password != passwordConfirmation:
             raise ValidationError(message='Password Confirmation does not match')
         try:
             password_validation.validate_password(password=password)

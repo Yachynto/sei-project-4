@@ -20,4 +20,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/lifehacks/', include('lifehacks.urls')),
     path('api/auth/', include('jwt_auth.urls')),
+    path('api/categories/', include('categories.urls'))
 ]
