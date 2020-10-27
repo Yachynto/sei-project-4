@@ -1,12 +1,13 @@
 import React from 'react'
 
 import ImageUpload from './ImageUpload'
-import { createLifehack, getCategories } from '../lib/api'
+
+import { createLifehack } from '../lib/api'
 
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
-// import MenuItem from '@material-ui/core/MenuItem'
+import MenuItem from '@material-ui/core/MenuItem'
 
 class LifehackCreate extends React.Component {
   state = {
@@ -14,22 +15,39 @@ class LifehackCreate extends React.Component {
       name: '',
       image: '',
       text: '',
-      category: ''
+      category: []
     },
-    categories: [],
+    categories: ['Technology', 'Smartphone', 'House'],
     errors: {}
   }
 
   async componentDidMount() {
-    try {
-      const response = await getCategories()
-      this.setState({
-        categories: response.data
-      })
-      console.log(response)
-    } catch (err) {
-      console.log(err)
+    console.log(this.state.formData.category)
+    // try {
+    //   const response = await getCategories()
+    //   const responseData = response.data
+    //   const nameCategory = responseData.map(item => {
+    //     return item
+    //   })
+      
+    //   this.setState({
+    //     formData: {
+    //       category: nameCategory
+    //     }
+    //   })
+    // } catch (err) {
+    //   console.log(err)
+    // }
+    console.log(this.state.categories)
+  }
+  handleCategorychange = event => {
+    const updateCategory = {
+      ...this.state,
+      [event.target.name]: event.target.value
     }
+    this.setState({ updateCategory })
+    console.log(updateCategory)
+    console.log(this.state.formData.category)
   }
 
   handleChange = event => {
@@ -38,6 +56,7 @@ class LifehackCreate extends React.Component {
       [event.target.name]: event.target.value
     }
     this.setState({ formData })
+    console.log(formData)
   }
 
   handleImageChange = url => {
@@ -50,10 +69,10 @@ class LifehackCreate extends React.Component {
     event.preventDefault()
     try {
       const response = await createLifehack(this.state.formData)
-      this.props.history.push('/lifehacks/')
+      window.location.href = '/'
       console.log(response.data)
     } catch (err) {
-      console.log(err.response.data)
+      console.log(err)
     }
     
   }
@@ -90,12 +109,9 @@ class LifehackCreate extends React.Component {
               helperText="Please select a category"
               variant="outlined"
             >
-              Need to find a way to get categories from back end
-              {/* {currencies.map((option) => (
-                <MenuItem key={option.value} value={option.value}>
-                  {option.label}
-                </MenuItem>
-              ))} */}
+              <MenuItem value={[4]}>Technology</MenuItem>
+              <MenuItem value={[5]}>Smartphone</MenuItem>
+              <MenuItem value={[6]}>House</MenuItem>
             </TextField>
           </div>
           <label htmlFor="raised-button-file">
