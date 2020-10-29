@@ -69,81 +69,95 @@ class Register extends React.Component {
     const { firstName, lastName, email, username, image, password, passwordConfirmation } = this.state.formData
     return (
       <Box component="span" m={1}>
-        <form autoComplete="off" onSubmit={this.handleSubmit}>
-          <div>
-            <TextField
-              id="outlined-required"
-              name="firstName"
-              label="First Name"
-              variant="outlined"
-              defaultValue={firstName}
-              onChange={this.handleChange}
-            />
-            <TextField
-              id="outlined"
-              name="lastName"
-              label="Last Name"
-              variant="outlined"
-              defaultValue={lastName}
-              onChange={this.handleChange}
-            />
-            <TextField
-              required
-              id="outlined"
-              name="username"
-              label="Username"
-              variant="outlined"
-              defaultValue={username}
-              onChange={this.handleChange}
-            />
-            <TextField
-              required
-              id="outlined"
-              name="email"
-              label="Email"
-              variant="outlined"
-              defaultValue={email}
-              onChange={this.handleChange}
-            />
-            <TextField
-              required
-              id="outlined-password-input"
-              name="password"
-              label="Password"
-              type="password"
-              autoComplete="current-password"
-              variant="outlined"
-              defaultValue={password}
-              onChange={this.handleChange}
-            />
-            <TextField
-              required
-              id="outlined-confirm-password-input"
-              name="passwordConfirmation"
-              label="Confirm Password"
-              type="password"
-              autoComplete="current-password"
-              variant="outlined"
-              defaultValue={passwordConfirmation}
-              onChange={this.handleChange}
-            />
+        <form autoComplete="off" onSubmit={this.handleSubmit}  style={{ display: 'flex', height: '300px', flexDirection: 'column', marginTop: '80px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', marginBottom: '20px' }}>
+            <div style={{ display: 'flex' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', margin: '0 20px 0 auto' }}>
+                <TextField
+                  id="outlined-required"
+                  name="firstName"
+                  label="First Name"
+                  variant="outlined"
+                  defaultValue={firstName}
+                  onChange={this.handleChange}
+                  style={{ backgroundColor: 'white' }}
+                />
+                <TextField
+                  id="outlined"
+                  name="lastName"
+                  label="Last Name"
+                  variant="outlined"
+                  defaultValue={lastName}
+                  onChange={this.handleChange}
+                  style={{ marginTop: '20px', backgroundColor: 'white'  }}
+                />
+                <TextField
+                  required
+                  id="outlined"
+                  name="username"
+                  label="Username"
+                  variant="outlined"
+                  defaultValue={username}
+                  onChange={this.handleChange}
+                  style={{ marginTop: '20px', backgroundColor: 'white'  }}
+                />
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', margin: '0 auto 0 20px' }}>
+                <TextField
+                  required
+                  id="outlined"
+                  name="email"
+                  label="Email"
+                  variant="outlined"
+                  defaultValue={email}
+                  onChange={this.handleChange}
+                  style={{ backgroundColor: 'white' }}
+                />
+                <TextField
+                  required
+                  id="outlined-password-input"
+                  name="password"
+                  label="Password"
+                  type="password"
+                  autoComplete="current-password"
+                  variant="outlined"
+                  defaultValue={password}
+                  onChange={this.handleChange}
+                  style={{ marginTop: '20px', backgroundColor: 'white'  }}
+                />
+                <TextField
+                  required
+                  id="outlined-confirm-password-input"
+                  name="passwordConfirmation"
+                  label="Confirm Password"
+                  type="password"
+                  autoComplete="current-password"
+                  variant="outlined"
+                  defaultValue={passwordConfirmation}
+                  onChange={this.handleChange}
+                  style={{ marginTop: '20px', backgroundColor: 'white'  }}
+                />
+              </div>
+            </div>
           </div>
+          <div style={{ alignSelf: 'center' }}>
+            <label htmlFor="raised-button-file">
+              <Button variant="contained" component="span" onClick={this.handleFileUpload}>
+                <ImageUpload
+                  accept="image/*"
+                  style={{ display: 'none' }}
+                  id="raised-button-file"
+                  multiple
+                  name="image"
+                  type="file"
+                  onChange={this.handleImageChange}
+                  defaultValue={image}
+                />
+              </Button>
+            </label>
+          </div>
+          <Button variant="contained" color="secondary" type="submit" style={{ maxWidth: '80px', alignSelf: 'center', marginTop: '20px', fontWeight: '700' }}>Register</Button>
           
-          <label htmlFor="raised-button-file">
-            <Button variant="contained" component="span" onClick={this.handleFileUpload}>
-              <ImageUpload
-                accept="image/*"
-                style={{ display: 'none' }}
-                id="raised-button-file"
-                multiple
-                name="image"
-                type="file"
-                onChange={this.handleImageChange}
-                defaultValue={image}
-              />
-            </Button>
-          </label>
-          <Button variant="contained" color="secondary" type="submit">Submit</Button>
         </form>
       </Box>
       

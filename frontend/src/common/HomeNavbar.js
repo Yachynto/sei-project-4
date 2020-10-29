@@ -30,13 +30,13 @@ const HomeNavbar = () => {
       <AppBar position="static" style={{ background: '#0C8540' }}>
         <Toolbar>
           <Typography component={Link} to="/" variant="h6" className={classes.title}>
-            <Button style={{ color: 'white' }}>Homepage</Button>
+            <Button style={{ color: 'white', fontWeight: '700' }}>Homepage</Button>
           </Typography>
           <Typography component={Link} to="/register" color="inherit" >
-            <Button style={{ color: 'white' }}>Register</Button>
+            <Button style={{ color: 'white', fontWeight: '700' }}>Register</Button>
           </Typography>
           <Typography component={Link} to="/login" color="inherit" >
-            <Button style={{ color: 'white' }}>Login</Button>
+            <Button style={{ color: 'white', fontWeight: '700' }}>Login</Button>
           </Typography>
         </Toolbar>
       </AppBar>

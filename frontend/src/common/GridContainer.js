@@ -24,7 +24,7 @@ const GridContainer = props => {
   const { lifehacks, isOpen, openModal, closeModal } = props
 
   return (
-    <Grid container className={classes.root} spacing={2}>
+    <Grid id="gridName" container className={classes.root} spacing={2}>
       <Grid item xs={12}>
         <Grid container justify="center" spacing={spacing}>
           { lifehacks.map(lifehack => (

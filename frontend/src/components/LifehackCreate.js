@@ -80,55 +80,67 @@ class LifehackCreate extends React.Component {
   render() {
     const { name, image, text, category } = this.state.formData
     return (
-      <Box component="span" m={1}>
-        <form autoComplete="off" onSubmit={this.handleSubmit}>
-          <div>
-            <TextField
-              id="outlined-required"
-              name="name"
-              label="Title"
-              variant="outlined"
-              defaultValue={name}
-              onChange={this.handleChange}
-            />
-            <TextField
-              id="outlined"
-              name="text"
-              label="Text"
-              variant="outlined"
-              defaultValue={text}
-              onChange={this.handleChange}
-            />
-            <TextField
-              id="outlined-select-currency"
-              select
-              name="category"
-              label="Category"
-              defaultValue={category}
-              onChange={this.handleChange}
-              helperText="Please select a category"
-              variant="outlined"
-            >
-              <MenuItem value={[4]}>Technology</MenuItem>
-              <MenuItem value={[5]}>Smartphone</MenuItem>
-              <MenuItem value={[6]}>House</MenuItem>
-            </TextField>
+      <Box id="gridName" component="span" m={1}>
+        <form autoComplete="off" onSubmit={this.handleSubmit} style={{ display: 'flex', height: '300px', flexDirection: 'column', marginTop: '80px' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', margin: '0 auto' }}>
+            <div>
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <TextField
+                  id="outlined-required"
+                  name="name"
+                  label="Title"
+                  variant="outlined"
+                  defaultValue={name}
+                  onChange={this.handleChange}
+                  style={{ backgroundColor: 'white' }}
+                />
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <TextField
+                  id="outlined"
+                  name="text"
+                  label="Text"
+                  variant="outlined"
+                  defaultValue={text}
+                  onChange={this.handleChange}
+                  style={{ backgroundColor: 'white', marginTop: '20px' }}
+                />
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column' }}>
+                <TextField
+                  id="outlined-select-currency"
+                  select
+                  name="category"
+                  label="Category"
+                  defaultValue={category}
+                  onChange={this.handleChange}
+                  helperText="Please select a category"
+                  variant="outlined"
+                  style={{ backgroundColor: 'white', marginTop: '20px' }}
+                >
+                  <MenuItem value={[4]}>Technology</MenuItem>
+                  <MenuItem value={[5]}>Smartphone</MenuItem>
+                  <MenuItem value={[6]}>House</MenuItem>
+                </TextField>
+              </div>
+            </div>
+            <label htmlFor="raised-button-file">
+              <Button variant="contained" component="span" onClick={this.handleFileUpload} style={{ marginTop: '20px' }}>
+                <ImageUpload
+                  accept="image/*"
+                  style={{ display: 'none' }}
+                  id="raised-button-file"
+                  multiple
+                  name="image"
+                  type="file"
+                  onChange={this.handleImageChange}
+                  defaultValue={image}
+                />
+              </Button>
+            </label>
+            <Button variant="contained" color="secondary" type="submit" style={{ maxWidth: '50px', alignSelf: 'center', marginTop: '20px' }}>Create</Button>
           </div>
-          <label htmlFor="raised-button-file">
-            <Button variant="contained" component="span" onClick={this.handleFileUpload}>
-              <ImageUpload
-                accept="image/*"
-                style={{ display: 'none' }}
-                id="raised-button-file"
-                multiple
-                name="image"
-                type="file"
-                onChange={this.handleImageChange}
-                defaultValue={image}
-              />
-            </Button>
-          </label>
-          <Button variant="contained" color="secondary" type="submit">Create</Button>
+          
         </form>
       </Box>
     )

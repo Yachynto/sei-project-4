@@ -24,6 +24,7 @@ import Profile from '../auth/Profile'
 
 import { logout } from '../lib/auth'
 import { Modal } from '@material-ui/core'
+import Avatar from '@material-ui/core/Avatar'
 // import HomePage from './HomePage'
 
 function TabPanel(props) {
@@ -116,11 +117,11 @@ const Navbar = () => {
             </HomeIcon>
           </IconButton>
           <Tabs value={value} onChange={handleChange} aria-label="simple tabs example">
-            <Tab label="All" {...a11yProps(0)} />
-            <Tab label="Create One" {...a11yProps(1)} />
+            <Tab label="All" {...a11yProps(0)} style={{ fontWeight: '700' }} />
+            <Tab label="Create One" {...a11yProps(1)} style={{ fontWeight: '700' }} />
           </Tabs>
           <div>
-            <IconButton
+            <Avatar alt="sdsd" src="https://res.cloudinary.com/yachynto/image/upload/v1603931601/AvatarPR_gclz6u.png"
               aria-label="account of current user"
               aria-controls="menu-appbar"
               aria-haspopup="true"
@@ -128,7 +129,7 @@ const Navbar = () => {
               color="inherit"
             >
               <AccountCircle />
-            </IconButton>
+            </Avatar>
             <Menu
               id="menu-appbar"
               anchorEl={anchorEl}
@@ -144,7 +145,7 @@ const Navbar = () => {
               open={open}
               onClose={handleClose}
             >
-              <MenuItem onClick={handleClose, setModalOpen}>Profile</MenuItem>
+              <MenuItem alt="Remy Sharp"onClick={handleClose, setModalOpen}>Profile</MenuItem>
               <MenuItem color="inherit" onClick={handleLogout} href="/">Logout</MenuItem>
             </Menu>
           </div>

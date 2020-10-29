@@ -10,7 +10,7 @@ import { Button } from '@material-ui/core'
 import Modal from '../common/Modal'
 // import { capitalize } from '@material-ui/core'
 
-import { getLifehacks, deleteLifehack } from '../lib/api'
+import { getLifehacks } from '../lib/api'
 import { getUser } from '../lib/auth'
 
 import { Link } from 'react-router-dom'
@@ -19,7 +19,8 @@ class ProfileLifehackCard extends React.Component {
   state = {
     isOpen: false,
     lifehacks: null,
-    profile: null
+    profile: null,
+    lifehack: null
   }
 
   async componentDidMount() {
@@ -28,20 +29,32 @@ class ProfileLifehackCard extends React.Component {
     this.setState({
       lifehacks: response.data,
       profile: userResponse.data
+
     })
   }
 
+  // async getSingleLifehack() {
+  //   const lifehackId = this.props.match.params.id
+  //   const response = await getSingleLifehack(lifehackId)
+  //   this.setState({
+  //     lifehack: response.data
+  //   })
+  //   console.log(this.state.lifehack)
+  // }
+
   setModalOpen = () => {
     this.setState({ isOpen: true })
+    console.log(this.state.lifehacks)
   }
 
   setModalClosed = () => {
     this.setState({ isOpen: false })
   }
 
-  handleDelete = async () => {
-    const lifehackId = this.props.match.params.id
-    await deleteLifehack(lifehackId)
+  handleDelete = async event => {
+    const lifehackId = event.target
+    // await deleteLifehack(lifehackId)
+    console.log(lifehackId)
   }
 
   
