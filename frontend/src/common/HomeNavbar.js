@@ -27,16 +27,16 @@ const HomeNavbar = () => {
 
   return (
     <div className={classes.root}>
-      <AppBar position="static" color="transparent">
+      <AppBar position="static" style={{ background: '#0C8540' }}>
         <Toolbar>
           <Typography component={Link} to="/" variant="h6" className={classes.title}>
-            <Button>Homepage</Button>
+            <Button style={{ color: 'white' }}>Homepage</Button>
           </Typography>
           <Typography component={Link} to="/register" color="inherit" >
-            <Button>Register</Button>
+            <Button style={{ color: 'white' }}>Register</Button>
           </Typography>
           <Typography component={Link} to="/login" color="inherit" >
-            <Button>Login</Button>
+            <Button style={{ color: 'white' }}>Login</Button>
           </Typography>
         </Toolbar>
       </AppBar>

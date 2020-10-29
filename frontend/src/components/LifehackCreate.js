@@ -40,15 +40,15 @@ class LifehackCreate extends React.Component {
     // }
     console.log(this.state.categories)
   }
-  handleCategorychange = event => {
-    const updateCategory = {
-      ...this.state,
-      [event.target.name]: event.target.value
-    }
-    this.setState({ updateCategory })
-    console.log(updateCategory)
-    console.log(this.state.formData.category)
-  }
+  // handleCategorychange = event => {
+  //   const updateCategory = {
+  //     ...this.state,
+  //     [event.target.name]: event.target.value
+  //   }
+  //   this.setState({ updateCategory })
+  //   console.log(updateCategory)
+  //   console.log(this.state.formData.category)
+  // }
 
   handleChange = event => {
     const formData = {

@@ -6,19 +6,29 @@ import CardActionArea from '@material-ui/core/CardActionArea'
 // import CardContent from '@material-ui/core/CardContent'
 // import Button from '@material-ui/core/Button'
 // import Typography from '@material-ui/core/Typography'
-// import { Button } from '@material-ui/core'
+import { Button } from '@material-ui/core'
+import Modal from '../common/Modal'
+// import { capitalize } from '@material-ui/core'
+
+import { getLifehacks, deleteLifehack } from '../lib/api'
+import { getUser } from '../lib/auth'
+
 import { Link } from 'react-router-dom'
 
-import Modal from '../common/Modal'
-import { capitalize } from '@material-ui/core'
-
-// import PlayCode from '../common/PlayCode'
-// import LifehackShow from './LifehackShow'
-// import LifehackShow from './LifehackShow'
-
-class LifehackCard extends React.Component {
+class ProfileLifehackCard extends React.Component {
   state = {
-    isOpen: false
+    isOpen: false,
+    lifehacks: null,
+    profile: null
+  }
+
+  async componentDidMount() {
+    const response = await getLifehacks()
+    const userResponse = await getUser()
+    this.setState({
+      lifehacks: response.data,
+      profile: userResponse.data
+    })
   }
 
   setModalOpen = () => {
@@ -29,26 +39,24 @@ class LifehackCard extends React.Component {
     this.setState({ isOpen: false })
   }
 
+  handleDelete = async () => {
+    const lifehackId = this.props.match.params.id
+    await deleteLifehack(lifehackId)
+  }
+
   
   render() {
-    const { id, name, image, text, owner } = this.props
+    const { id, name, image, text } = this.props
+    if ( !this.state.lifehacks ) return null
     return (
       <>
-        <Card id={id} onClick={this.setModalOpen} style={{ height: '200px', width: '320px' }}>
+        <Card id={id} onClick={this.setModalOpen} style={{ height: '50px', width: '80px', marginRight: '5px' }}>
           <CardActionArea>
             <Link to='/'>
               <img src={image} alt={name} style={{ height: '100%', width: '100%' }}
               />
             </Link>
           </CardActionArea>
-          {/* <CardActions>
-          <Button size="small" color="primary">
-            Share
-          </Button>
-          <Button size="small" color="primary">
-            Learn More
-          </Button>
-        </CardActions> */}
         </Card>
         <Modal
           isOpen={this.state.isOpen}
@@ -71,8 +79,10 @@ class LifehackCard extends React.Component {
               <div className="content">
                 {text}
                 <br />
+                <Button color="primary" onClick={this.handleDelete} className="button is-danger" style={{ marginTop: '20px' }}>
+            Delete
+                </Button>
                 <br />
-                <p style={{ textAlign: 'right' }}>{capitalize(`${owner.username}`)}</p>
               </div>
             </div>
           </div>
@@ -81,4 +91,4 @@ class LifehackCard extends React.Component {
     )
   }
 }
-export default LifehackCard
+export default ProfileLifehackCard

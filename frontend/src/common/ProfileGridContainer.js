@@ -3,7 +3,7 @@ import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
 import Grid from '@material-ui/core/Grid'
 
-import LifehackCard from '../components/LifehackCard'
+import ProfileLifehackCard from '../components/ProfileLifehackCard'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,7 +29,7 @@ const GridContainer = props => {
         <Grid container justify="center" spacing={spacing}>
           { lifehacks.map(lifehack => (
             <Grid key={lifehack} item>
-              <LifehackCard
+              <ProfileLifehackCard
                 className={classes.paper}
                 key={lifehack.id} {...lifehack}
                 isOpen={isOpen}

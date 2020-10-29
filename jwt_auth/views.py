@@ -2,12 +2,13 @@ from datetime import datetime, timedelta
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.exceptions import PermissionDenied
-# from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated
 from rest_framework import status
 from django.contrib.auth import get_user_model
 from django.conf import settings
 import jwt
 
+from .serializers.populated import PopulatedUserSerializer
 from .serializers.common import UserSerializer
 
 User = get_user_model()
@@ -45,11 +46,11 @@ class LoginView(APIView):
         )
         return Response({'token': token, 'message': f'Welcome Back {login_user.username}'})
 
-# class ProfileView(APIView):
+class ProfileView(APIView):
 
-#     permission_classes = (IsAuthenticated, ) #? Comma at the end to be a tuple
+    permission_classes = (IsAuthenticated, ) #? Comma at the end to be a tuple
 
-#     def get(self, request):
-#         user = User.objects.get(pk=request.user.id)
-#         serialized_user = UserSerializer(user)
-#         return Response(serialized_user.data, status=status.HTTP_200_OK)
+    def get(self, request):
+        user = User.objects.get(pk=request.user.id)
+        serialized_user = PopulatedUserSerializer(user)
+        return Response(serialized_user.data, status=status.HTTP_200_OK)

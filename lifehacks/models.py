@@ -11,7 +11,7 @@ class Lifehack(models.Model):
     )
     owner = models.ForeignKey(
         'jwt_auth.User',
-        related_name="created_lifehack",
+        related_name="createdLifehack",
         on_delete=models.CASCADE
     )
 

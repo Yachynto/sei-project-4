@@ -5,3 +5,5 @@ class User(AbstractUser):
     username = models.CharField(max_length=50, unique=True)
     email = models.CharField(max_length=50, unique=True)
     image = models.CharField(max_length=300)
+    # firstName = models.CharField(max_length=20, blank=True)
+    # lastName = models.CharField(max_length=20, blank=True)

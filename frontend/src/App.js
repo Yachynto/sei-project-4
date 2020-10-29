@@ -7,6 +7,8 @@ import Navbar from './common/Navbar'
 import HomeNavbar from './common/HomeNavbar'
 
 import LifehackIndex from './components/LifehackIndex'
+// import LifehackShow from './components/LifehackShow'
+
 import Register from './auth/Register'
 import Login from './auth/Login'
 
@@ -38,6 +40,7 @@ class App extends React.Component {
           <div>
             <Navbar />
             <Switch>
+              {/* <Route path="/lifehacks/:id" component={LifehackShow} /> */}
               <Route path="/lifehacks" component={LifehackIndex} />
             </Switch>
           </div>

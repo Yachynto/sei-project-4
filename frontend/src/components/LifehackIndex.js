@@ -6,7 +6,16 @@ import GridContainer from '../common/GridContainer'
 
 class LifehackIndex extends React.Component {
   state = {
-    lifehacks: null
+    lifehacks: null,
+    isOpen: false
+  }
+
+  setModalOpen = () => {
+    this.setState({ isOpen: true })
+  }
+
+  setModalClosed = () => {
+    this.setState({ isOpen: false })
   }
 
   async componentDidMount() {
@@ -14,6 +23,7 @@ class LifehackIndex extends React.Component {
     this.setState({
       lifehacks: response.data
     })
+    console.log(this.state.lifehacks[0].owner.username)
   }
 
   render() {

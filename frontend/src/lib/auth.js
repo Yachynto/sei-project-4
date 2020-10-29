@@ -1,11 +1,27 @@
 import axios from 'axios'
 
+const withHeaders = () => {
+  return {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem('token')}`
+    }
+  }
+}
+
 export const registerUser = formData => {
   return axios.post('/api/auth/register/', formData)
 }
 
 export const loginUser = formData => {
   return axios.post('/api/auth/login/', formData)
+}
+
+export function getUser() {
+  return axios.get('/api/auth/profile', withHeaders())
+}
+
+export const userEdit = (formData) => {
+  return axios.put('/api/profile', formData, withHeaders())
 }
 
 // Token, Payload and Auth check
